@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand align-center link-dark fs-1" href="#"><img src="https://i.hizliresim.com/11x748l.png" width="35"
+        height="50" class="d-inline-block align-center" alt="">News-Matriks</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="mobileCategories collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kategoriler
+          </a>
+          <ul class="dropdown-menu">
+            <li><a (click)="this.func.filter('category')" class="dropdown-item">Tüm Kategoriler</a></li>
+            <li *ngFor="let item of categories">
+              <a (click)="this.func.filter('category',item.code)" class="dropdown-item">{{item.description}}</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="mobileForm d-flex d-lg-none" role="search">
+        <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}" (input)="this.func.setSearch(search)" class="form-control me-2" type="search"
+          placeholder="Arama yap" aria-label="Search">
+        <!-- <button class="btn btn-outline-dark" type="submit">Ara</button> -->
+      </form>
+    </div>
+    <form class="webForm d-none d-lg-flex" role="search">
+      <i class="fa-solid fa-magnifying-glass searchicon"></i>
+      <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}" (input)="this.func.setSearch(search)" class="form-control form-control-sm me-2"
+        type="search" placeholder="Arama yap" aria-label="Search">
+      <!-- <button class="btn btn-sm btn-outline-dark" type="submit">Ara</button> -->
+    </form>
+  </div>
+</nav>

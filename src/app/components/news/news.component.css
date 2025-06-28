@@ -1,0 +1,39 @@
+.card-title{
+    height: 15vh;
+    font-size: 0.85rem;
+    overflow: hidden; /* taşanları gizle */
+    white-space: wrap; /* alt satıra hiç inme */
+    text-overflow: ellipsis; /* eğer uzunsa üç nokta koy */
+}
+
+.btn{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: small!important;
+}
+
+.btn-nr{
+    background-color: #201e5a!important;
+}
+
+.btn-r{
+    background-color: transparent;
+    border: 1.5px solid #201e5a;
+}
+
+.btn-nr:hover{
+    color: black;
+    background-color: white!important;
+    border: 1.5px solid #201e5a;
+}
+
+.btn-r:hover{
+    color:white;
+    background-color: #201e5a;
+}
+
+.card-columns{
+    border-radius: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

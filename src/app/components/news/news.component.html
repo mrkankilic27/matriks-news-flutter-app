@@ -1,0 +1,68 @@
+<div *ngIf="!filteredHeaders" class="d-flex my-5 justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <strong class="my-auto">&nbsp; Yükleniyor. . .</strong>
+</div>
+
+<div *ngIf="filteredHeaders?.length>0" class="News container-fluid">
+  <span><button (click)="this.func.filter('time','',this.filteredHeaders)" class="btn btn-sm mb-2 btn-outline-dark"><i
+        class="fa-solid fa-calendar-days px-1"></i><i class="fa-solid fa-sort px-1"></i></button></span>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <ng-container *ngFor="let item of filteredHeaders|newsFilter:search,let i=index">
+      <div class="col mb-2">
+        <div class="card-columns">
+          <div class="card">
+            <img class="card-img-top" src="https://i.hizliresim.com/7ag4e7g.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-text h6"><i class="fa-solid fa-folder-open"></i> {{categoryConvert(item.category)}}</h5>
+              <p class="card-title text-break">{{item.headline}}</p>
+              <p class="card-text">
+                <span class="d-flex justify-content-between">
+                  <small class="text-muted">{{dayConvert(item.timestamp).tarih}}<br>
+                    {{dayConvert(item.timestamp).saat}}
+                  </small>
+                  <button type="button" *ngIf="seenCheck(item.id)===false" (click)="getNewsDetail(item.id)"
+                    class="btn btn-nr btn-sm btn-dark" id="showbtn" data-bs-toggle="modal" data-bs-target="#detail">
+                    Detayları oku
+                  </button>
+                  <button type="button" *ngIf="seenCheck(item.id)" (click)="getNewsDetail(item.id)"
+                    class="btn btn-r btn-sm btn-outline-dark" id="showbtn" data-bs-toggle="modal" data-bs-target="#detail">
+                    Tekrar oku
+                  </button>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+<div *ngIf="filteredHeaders?.length===0" class="News container-fluid mx-auto my-2 col-10">
+  <a class="my-auto col-6 text-decoration-none">
+    <h5>Bu kategoride haber bulunmamaktadır.</h5>
+  </a>
+  <hr>
+</div>
+
+
+
+<div *ngIf="newsDetail" class="modal modal-xl" tabindex="-1" id="detail">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{newsDetail.headline}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="content-area">
+
+      </div>
+      <div *ngIf="newsDetail.timestamp" class="modal-footer">
+        <small>{{dayConvert(newsDetail.timestamp).saat}} {{dayConvert(newsDetail.timestamp).tarih}}</small>
+      </div>
+    </div>
+  </div>
+</div>

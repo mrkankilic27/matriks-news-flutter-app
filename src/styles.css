@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body{
+    height: 100%;
+    background: radial-gradient(rgb(236, 236, 236),white);
+    background-repeat: no-repeat;
+    font-family: Montserrat!important;
+}
+
+.navbar{
+    background-color: #201e5a!important;
+    /* background-color: #bf131b!important; */
+}
+
+.navbar-brand{
+    color: white!important;
+}
+
+.navbar-brand:hover{
+    color: white!important;
+}
+
+.searchicon{
+    position: absolute;
+    top: 40%;
+    right: 2.1%;
+}
+
+.webForm>input{
+    border-radius: 0.5vw!important;
+    width: 20vw;
+    height: 2vw;
+    background-color: rgb(248, 248, 248);
+}
+
+.webCategories{
+    border-radius: 1.5vh;
+   background-color: #ffffff!important;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /* background: linear-gradient(160deg,rgba(0, 0, 0, 0.11),rgba(255, 255, 255, 0.5)); */
+}
+
+.table>tr,td,thead>tr>th{
+    font-size: medium;
+    color: rgb(0, 0, 0);
+    /* background: rgba(255, 255, 255, 0.39)!important */
+}
+
+.trHover{
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.news{
+    border-bottom: 1px solid;
+    /* border-radius: 2vh; */
+    background: rgba(0, 0, 0, 0.007);
+}
+
+.news>img{
+    max-width: 10vw;
+}
